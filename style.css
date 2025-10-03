@@ -1,5 +1,8 @@
 
 /* styles.css */
+html, body {
+  overflow-x: hidden;
+}
 
 :root{--bg:#0b1220;--panel:#101827;--text:#e5e7eb;--muted:#94a3b8;--primary:#5b9cff;--primary-600:#3b82f6;--accent:#34d399;--card:#0f172a;--shadow:0 10px 30px rgba(0,0,0,.35)}
 [data-theme="light"]{--bg:#f7fafc;--panel:#ffffff;--text:#0f172a;--muted:#475569;--primary:#2563eb;--primary-600:#1d4ed8;--accent:#059669;--card:#ffffff;--shadow:0 6px 20px rgba(2,6,23,.08)}
@@ -104,6 +107,7 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:21/12;max-height:60vh}
 .modal-footer{display:flex;justify-content:flex-end;gap:10px;padding:12px 16px;border-top:1px solid rgba(148,163,184,.15)}
 .modal-body ul{margin:8px 0 0 18px}
 .badge.tag{display:inline-block;margin-right:6px;margin-top:6px;padding:3px 8px;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.35);font-size:12px}
+
 
 
 
