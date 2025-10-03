@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SMARTMEDTROLLEY</title>
+  <title>SMARTMEDTROLLEY – Robotic Trolley + Mobile App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -13,17 +13,68 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <button id="menuToggle" class="icon-btn" aria-label="Menu" aria-expanded="false">☰</button>
-      <div class="brand">
-        <span class="logo"> SMARTMEDTROLLEY</span>
-        <span class="tag"></span>
+      <button id="menuToggle" class="icon-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+
+       <div class="brand">
+        <img src="../assets/logo.jpg" class="logo-img" alt="SMARTMEDTROLLEY logo" onerror="this.remove()">
+        <span class="logo">SMARTMEDTROLLEY</span>
       </div>
+
       <nav id="nav" class="nav" aria-label="Primary">
         <a href="#features">Features</a>
         <a href="#demos">Demos</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+
+        <div class="nav-actions">
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+
+          <div class="profile">
+            <button id="profileBtn" class="profile-btn" aria-expanded="false" aria-haspopup="menu" aria-controls="profileMenu">
+              Profile ▾
+            </button>
+            <div id="profileMenu" class="profile-menu" role="menu" aria-hidden="true">
+              <div class="menu-header">Organization Profile</div>
+
+              <div class="kv">
+                <div class="k">Administrative</div>
+                <div class="v" id="adminName">Dr. Ayesha Khan</div>
+              </div>
+              <div class="kv">
+                <div class="k">Hospital Name</div>
+                <div class="v" id="hospitalName">SMARTMEDTROLLEY General Hospital</div>
+              </div>
+              <div class="kv">
+                <div class="k">Branch</div>
+                <div class="v" id="branchName">Main Campus – East Wing</div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="kv kv-actions">
+                <div class="k">Access to Staff</div>
+                <div class="v">
+                  <span id="staffCount" class="badge">0</span>
+                  <button id="manageStaff" class="mini-btn">Manage</button>
+                </div>
+              </div>
+
+              <div class="kv kv-actions">
+                <div class="k">Lock System</div>
+                <div class="v">
+                  <span id="lockState" class="badge warn">Locked</span>
+                  <button id="quickLockToggle" class="mini-btn">Unlock</button>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="row wrap">
+                <button id="editOrg" class="btn">Edit Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -34,7 +85,7 @@
         <div>
           <h1>Healthcare logistics, simplified.</h1>
           <p>
-           SMARTMEDTROLLEY is a smart robotic trolley paired with a mobile app to safely move and manage medicines with
+            SMARTMEDTROLLEY is a smart robotic trolley paired with a mobile app to safely move and manage medicines with
             auto‑follow navigation, prescription reminders, theft alerts, and vaccine‑grade cold storage.
           </p>
           <div class="cta">
@@ -62,18 +113,22 @@
           <article class="card">
             <h3>Auto‑follow & Obstacle Detection</h3>
             <p>Follows the caregiver and avoids collisions using vision + ultrasonic sensing.</p>
+            <button class="btn view-more" data-feature="auto">View more</button>
           </article>
           <article class="card">
             <h3>Smart Lock & Theft Alert</h3>
             <p>PIN/biometric lock with tamper detection and instant mobile alert.</p>
+            <button class="btn view-more" data-feature="lock">View more</button>
           </article>
           <article class="card">
             <h3>Dosage Reminder & Records</h3>
             <p>Schedules reminders, logs adherence, and stores prescriptions securely.</p>
+            <button class="btn view-more" data-feature="reminder">View more</button>
           </article>
           <article class="card">
             <h3>Cold Storage</h3>
             <p>Medical‑grade cooling with continuous temperature monitoring and alerts.</p>
+            <button class="btn view-more" data-feature="cold">View more</button>
           </article>
         </div>
       </div>
@@ -150,7 +205,7 @@
         <div>
           <h2>About SMARTMEDTROLLEY</h2>
           <p>
-           SMARTMEDTROLLEY augments hospital and home‑care workflows, reducing manual load and improving safety.
+            SMARTMEDTROLLEY augments hospital and home‑care workflows, reducing manual load and improving safety.
             The app pairs over BLE/Wi‑Fi for control, notifications, and audit logs.
           </p>
         </div>
@@ -192,9 +247,23 @@
   <footer class="site-footer">
     <div class="container foot">
       <span>© <span id="year"></span> SMARTMEDTROLLEY</span>
-      <span>Built with Vaibhav</span>
+      <span>Built with </span>
     </div>
   </footer>
+
+  <!-- Feature Modal -->
+  <div id="featureModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 id="modalTitle">Details</h3>
+        <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+      <div class="modal-footer">
+        <button id="modalOk" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
