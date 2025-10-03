@@ -1,0 +1,197 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROBOT – Robotic Trolley + Mobile App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">ROBO-T</span>
+        <span class="tag"></span>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme">🌙</button>
+        <a href="#features">Features</a>
+        <a href="#demos">Demos</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid-2">
+        <div>
+          <h1>Healthcare logistics, simplified.</h1>
+          <p>
+            ROBO-T is a smart robotic trolley paired with a mobile app, designed to
+            safely move and manage medicines with auto-follow navigation,
+            prescription reminders, theft alerts, and vaccine-grade cold storage.
+          </p>
+          <div class="cta">
+            <a href="#demos" class="btn btn-primary">Try Live Demos</a>
+            <a href="#features" class="btn btn-secondary">Explore Features</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="device">
+            <div class="lid"></div>
+            <div class="body">
+              <div class="sensor"></div>
+              <div class="wheels"></div>
+            </div>
+          </div>
+          <small class="caption">Concept render of the ROBO-T trolley</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2>Key Features</h2>
+        <div class="features">
+          <article class="card">
+            <h3>Auto-follow & Obstacle Detection</h3>
+            <p>Follows the caregiver while avoiding collisions using vision and ultrasonic sensing.</p>
+          </article>
+          <article class="card">
+            <h3>Smart Lock & Theft Alert</h3>
+            <p>PIN / biometric lock with tamper detection and instant alert to the paired phone.</p>
+          </article>
+          <article class="card">
+            <h3>Dosage Reminder & Prescription Record</h3>
+            <p>Schedules reminders, logs adherence, and stores prescriptions securely on-device.</p>
+          </article>
+          <article class="card">
+            <h3>Cold Storage for Vaccines & Insulins</h3>
+            <p>Actively cooled compartment with continuous temperature monitoring and alerts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="demos" class="section">
+      <div class="container">
+        <h2>Interactive Demos</h2>
+        <div class="demos">
+          <div class="demo card">
+            <h3>Auto-follow Simulator</h3>
+            <canvas id="followCanvas" width="420" height="240" aria-label="Auto follow simulation"></canvas>
+            <div class="row">
+              <label>Obstacles: <input id="obstacleCount" type="range" min="0" max="8" value="3" /></label>
+              <button id="resetFollow" class="btn">Reset</button>
+            </div>
+          </div>
+
+          <div class="demo card">
+            <h3>Smart Lock</h3>
+            <div class="lock">
+              <input id="pin" type="password" placeholder="Enter 4-digit PIN" maxlength="4" />
+              <button id="setPin" class="btn">Set/Change PIN</button>
+              <button id="unlock" class="btn btn-primary">Unlock</button>
+              <div id="lockStatus" class="status" role="status">Locked</div>
+            </div>
+          </div>
+
+          <div class="demo card">
+            <h3>Dosage Reminder</h3>
+            <form id="reminderForm" class="grid-2">
+              <label>
+                Medicine Name
+                <input name="name" required />
+              </label>
+              <label>
+                Time
+                <input type="time" name="time" required />
+              </label>
+              <label class="full">
+                Notes
+                <input name="notes" />
+              </label>
+              <button class="btn btn-primary full" type="submit">Add Reminder</button>
+            </form>
+            <ul id="reminders" class="list"></ul>
+          </div>
+
+          <div class="demo card">
+            <h3>Cold Storage Monitor</h3>
+            <div class="row">
+              <label>Target °C: <input id="targetTemp" type="number" value="4" step="0.5" /></label>
+              <label>Ambient °C: <input id="ambientTemp" type="number" value="24" step="0.5" /></label>
+              <button id="toggleCooling" class="btn">Start</button>
+            </div>
+            <div class="temp-readout">
+              <div>Compartment: <span id="compartmentTemp">--</span> °C</div>
+              <div>Status: <span id="coolingStatus">Idle</span></div>
+            </div>
+            <canvas id="tempChart" width="420" height="160"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container grid-2">
+        <div>
+          <h2>About ROBO-T</h2>
+          <p>
+            ROBO-T augments hospital and home-care workflows, reducing manual load and
+            improving safety. The mobile app pairs over BLE/Wi‑Fi for control,
+            notifications, and audit logs. The trolley includes redundant sensors,
+            haptic feedback, and an easily sanitized exterior.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Spec Highlights</h3>
+          <ul class="list">
+            <li>Lidar + ultrasonic fusion</li>
+            <li>Biometric/PIN smart lock</li>
+            <li>Removable medical-grade cold module</li>
+            <li>All-day battery with hot-swap</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <form id="contactForm" class="grid-2">
+          <label>
+            Your Name
+            <input name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label class="full">
+            Message
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="btn btn-primary full" type="submit">Send</button>
+        </form>
+        <div id="contactResult" class="status" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> ROBO-T</span>
+      <span>Built with Vaibhav</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
