@@ -140,10 +140,20 @@
         <!-- 🔹 Added Project Video Section -->
         <div class="demo card">
           <h3>Project Demonstration Video</h3>
-          <video width="100%" controls>
-            <source src="../assets/WhatsApp Video 2025-10-05 at 10.49.05 AM.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <video 
+  width="100%" 
+  controls 
+  playsinline 
+  muted 
+  autoplay 
+  loop 
+  preload="auto"
+  poster="poster.jpg"
+  style="max-width:100%;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+  <source src="../assets/WhatsApp Video 2025-10-05 at 10.49.05 AM.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
           <p class="caption">Watch how the SMARTMEDTROLLEY system works in real time.</p>
         </div>
         <!-- 🔹 End Project Video Section -->
@@ -279,5 +289,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
